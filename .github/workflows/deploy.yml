@@ -2,6 +2,9 @@ name: Deploy
 
 on: push
 
+# concurrency is used to ensure that only one deployment runs at a time for a specific branch.
+# If a new push occurs while a deployment is in progress, the previous one will be canceled
+# and the new one will start.
 concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: true
