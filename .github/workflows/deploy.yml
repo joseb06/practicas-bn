@@ -32,6 +32,9 @@ jobs:
       - name: Build page
         run: npm run build
 
+      - name: step summary example
+        run: echo "Build completed successfully!" >> $GITHUB_STEP_SUMMARY
+
   notification:
     needs: build
     runs-on: ubuntu-latest
