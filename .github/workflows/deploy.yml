@@ -31,3 +31,13 @@ jobs:
       
       - name: Build page
         run: npm run build
+
+  notification:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    steps:
+      - name: Notify
+        run: |
+          echo "Build completed successfully!"
+          echo "You can now deploy your application."
